@@ -2,10 +2,12 @@ import { Navigation } from './components/Navigation.js';
 import { FormHandler } from './components/FormHandler.js';
 import { Portfolio } from './components/Portfolio.js';
 import { Tabs } from './components/Tabs.js';
+import { PhoneMask } from './components/PhoneMask.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     new Navigation();
     new FormHandler('toggle-form');
+    new PhoneMask('phone-mask');
 
     const portfolioContainer = document.getElementById('portfolio-page');
     if (portfolioContainer) {
