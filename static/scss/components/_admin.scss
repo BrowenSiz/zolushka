@@ -1,0 +1,53 @@
+// ==========================================================================
+// ADMIN CUSTOM STYLES (FINAL & CORRECTED)
+// ==========================================================================
+// Эти стили применяются к выпадающему списку, который динамически создает Select2
+
+.select2-container--default {
+
+  // Стили для каждого пункта в выпадающем списке
+  .select2-results__option {
+    position: relative;
+    padding-left: 35px !important; // Освобождаем место для иконки
+    list-style: none !important;   // Гарантированно убираем черные точки
+
+    // Рисуем иконку через псевдоэлемент
+    &::before {
+      // Подключаем шрифт и базовые стили для иконок Material Symbols
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+      
+      // Позиционируем иконку
+      position: absolute;
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $text-secondary;
+    }
+  }
+}
+
+// --- "Магия": для каждой опции рисуем свою иконку ---
+// Селектор [id$="..."] находит элемент, id которого ЗАКАНЧИВАЕТСЯ на указанное значение
+.select2-results__option[id$="-cleaning_services"]::before { content: 'cleaning_services'; }
+.select2-results__option[id$="-construction"]::before { content: 'construction'; }
+.select2-results__option[id$="-diamond"]::before { content: 'diamond'; }
+.select2-results__option[id$="-house"]::before { content: 'house'; }
+.select2-results__option[id$="-cottage"]::before { content: 'cottage'; }
+.select2-results__option[id$="-apartment"]::before { content: 'apartment'; }
+.select2-results__option[id$="-window"]::before { content: 'window'; }
+.select2-results__option[id$="-chair"]::before { content: 'chair'; }
+.select2-results__option[id$="-bug_report"]::before { content: 'bug_report'; }
+.select2-results__option[id$="-eco"]::before { content: 'eco'; }
+.select2-results__option[id$="-health_and_safety"]::before { content: 'health_and_safety'; }

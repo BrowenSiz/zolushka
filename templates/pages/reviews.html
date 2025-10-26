@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Отзывы клиентов | Компания "Золушка"{% endblock title %}
+
+{% block content %}
+<section class="section page-hero">
+    <div class="container">
+        <h1 class="page-hero__title">Что говорят наши клиенты</h1>
+        <p class="page-hero__subtitle">Мы гордимся своей репутацией и благодарны за каждый оставленный отзыв.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="reviews-grid">
+            {% for review in reviews %}
+            <div class="review-card">
+                <div class="review-card__header">
+                    <img src="{{ review.image.url }}" alt="Фото отзыва от {{ review.author_name }}" class="review-card__img">
+                    <span class="review-card__author">{{ review.author_name }}</span>
+                </div>
+                <blockquote class="review-card__text">
+                    {{ review.text|linebreaks }}
+                </blockquote>
+            </div>
+            {% empty %}
+            <p>Здесь скоро появятся отзывы наших клиентов. Вы можете стать первым!</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock content %}

@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Клининговая компания Золушка в Брянске | Профессиональная уборка</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background: white;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #007CFB;
+            text-decoration: none;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav__link {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav__link:hover {
+            color: #007CFB;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .contact-phone {
+            color: #007CFB;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+        }
+
+        .contact-phone:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .hero__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero__content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .hero__title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #09090B;
+        }
+
+        .hero__subtitle {
+            font-size: 1.25rem;
+            color: #52525B;
+            max-width: 500px;
+        }
+
+        .hero__image-wrapper {
+            margin-top: 2rem;
+        }
+
+        .hero__image-wrapper img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Form Styles */
+        .form-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-card__title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #09090B;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-card__subtitle {
+            color: #52525B;
+            margin-bottom: 2rem;
+        }
+
+        .form-toggle {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            background: #F4F4F5;
+            padding: 0.5rem;
+            border-radius: 12px;
+        }
+
+        .form-toggle input[type="radio"] {
+            display: none;
+        }
+
+        .form-toggle label {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .form-toggle input[type="radio"]:checked + label {
+            background: #007CFB;
+            color: white;
+        }
+
+        .field {
+            margin-bottom: 1.5rem;
+        }
+
+        .field__input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #E5E7EB;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        .field__input:focus {
+            outline: none;
+            border-color: #007CFB;
+        }
+
+        .rooms-selector {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .rooms-selector input[type="radio"] {
+            display: none;
+        }
+
+        .rooms-selector label {
+            flex: 1;
+            padding: 0.75rem;
+            text-align: center;
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .rooms-selector input[type="radio"]:checked + label {
+            background: #007CFB;
+            color: white;
+            border-color: #007CFB;
+        }
+
+        .button {
+            display: block;
+            width: 100%;
+            padding: 1.25rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .button--accent {
+            background: #007CFB;
+            color: white;
+        }
+
+        .button--accent:hover {
+            background: #0066CC;
+            transform: translateY(-2px);
+        }
+
+        .form-card__note {
+            font-size: 0.875rem;
+            color: #52525B;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        /* Services Section */
+        .services {
+            background: #FAFAFA;
+        }
+
+        .section__header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section__title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #09090B;
+            margin-bottom: 1rem;
+        }
+
+        .section__subtitle {
+            font-size: 1.25rem;
+            color: #52525B;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card__icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card__title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #09090B;
+            margin-bottom: 1rem;
+        }
+
+        .service-card__description {
+            color: #52525B;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card__price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #007CFB;
+        }
+
+        /* Advantages Section */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .advantage-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .advantage-card__icon {
+            width: 64px;
+            height: 64px;
+            background: #007CFB;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+        }
+
+        .advantage-card__title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #09090B;
+            margin-bottom: 0.5rem;
+        }
+
+        .advantage-card__description {
+            color: #52525B;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: #FAFAFA;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .testimonial-rating {
+            color: #F97316;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #52525B;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: #09090B;
+        }
+
+        /* Footer */
+        .footer {
+            background: #09090B;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer__section h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer__links {
+            list-style: none;
+        }
+
+        .footer__links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer__links a {
+            color: #D1D5DB;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer__links a:hover {
+            color: white;
+        }
+
+        .footer__contact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer__contact div {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #D1D5DB;
+        }
+
+        .footer__bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            text-align: center;
+            color: #D1D5DB;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero__grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero__title {
+                font-size: 2.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .contact-info {
+                gap: 1rem;
+            }
+
+            .contact-phone {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header__container">
+            <a href="/" class="logo">Zolushka</a>
+            <nav class="nav">
+                <a href="#services" class="nav__link">Услуги</a>
+                <a href="#about" class="nav__link">О компании</a>
+                <a href="#contact" class="nav__link">Контакты</a>
+            </nav>
+            <div class="contact-info">
+                <a href="tel:+74832123456" class="contact-phone">+7 (4832) 123-456</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="section hero">
+        <div class="container hero__grid">
+            <aside class="hero__form">
+                <div class="form-card">
+                    <h3 class="form-card__title">Быстрый расчет стоимости</h3>
+                    <p class="form-card__subtitle">Заполните поля и мы вам перезвоним</p>
+                    <form id="toggle-form" action="#" method="POST">
+                        <div class="form-toggle">
+                            <input type="radio" id="toggle-private" name="object_type_toggle" value="private" checked>
+                            <label for="toggle-private">Квартира / Дом</label>
+                            <input type="radio" id="toggle-commercial" name="object_type_toggle" value="commercial">
+                            <label for="toggle-commercial">Офис / Коммерция</label>
+                        </div>
+
+                        <div class="form-fields-wrapper">
+                            <div id="private-fields">
+                                <div class="field">
+                                    <select name="service_type_private" class="field__input">
+                                        <option value="">Выберите тип уборки...</option>
+                                        <option value="Генеральная уборка">Генеральная уборка</option>
+                                        <option value="Поддерживающая уборка">Поддерживающая уборка</option>
+                                        <option value="Уборка после ремонта">Уборка после ремонта</option>
+                                        <option value="Мытье окон">Мытье окон</option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <div class="rooms-selector">
+                                        <input type="radio" id="rooms-1" name="rooms" value="1" checked>
+                                        <label for="rooms-1">1 комн.</label>
+                                        <input type="radio" id="rooms-2" name="rooms" value="2">
+                                        <label for="rooms-2">2 комн.</label>
+                                        <input type="radio" id="rooms-3" name="rooms" value="3">
+                                        <label for="rooms-3">3 комн.</label>
+                                        <input type="radio" id="rooms-4p" name="rooms" value="4+">
+                                        <label for="rooms-4p">4+</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="commercial-fields" hidden>
+                                <div class="field">
+                                    <input type="text" name="commercial_type" placeholder="Тип объекта (офис, магазин...)" class="field__input">
+                                </div>
+                                <div class="field">
+                                    <input type="number" name="commercial_area" placeholder="Примерная площадь, м²" class="field__input">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <input class="field__input" id="phone" name="phone" type="tel" placeholder="Ваш телефон *" required>
+                        </div>
+                        <button class="button button--accent" type="submit">Рассчитать стоимость</button>
+                        <p class="form-card__note">Нажимая на кнопку, вы соглашаетесь с обработкой персональных данных.</p>
+                    </form>
+                </div>
+            </aside>
+
+            <div class="hero__content">
+                <h1 class="hero__title">
+                    Безупречная чистота,<br> ноль усилий
+                </h1>
+                <p class="hero__subtitle">
+                    Профессиональный клининг в Брянске, который экономит ваше время. Закажите уборку онлайн за 2 минуты!
+                </p>
+                <div class="hero__image-wrapper">
+                    <img src="https://placehold.co/500x400/f3f4f6/374151?text=Профессиональный+клининг" alt="Профессиональный клинер компании Золушка">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Наши услуги</h2>
+                <p class="section__subtitle">Широкий спектр клининговых услуг для вашего удобства</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-card__icon">🧹</div>
+                    <h3 class="service-card__title">Генеральная уборка</h3>
+                    <p class="service-card__description">Полная уборка всех помещений с использованием профессиональных средств</p>
+                    <div class="service-card__price">от 4500 ₽</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">🏠</div>
+                    <h3 class="service-card__title">Поддерживающая уборка</h3>
+                    <p class="service-card__description">Еженедельная или ежедневная уборка для поддержания чистоты</p>
+                    <div class="service-card__price">от 2500 ₽</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">🔨</div>
+                    <h3 class="service-card__title">Уборка после ремонта</h3>
+                    <p class="service-card__description">Удаление строительного мусора и пыли, мытье окон и поверхностей</p>
+                    <div class="service-card__price">от 6000 ₽</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">🪟</div>
+                    <h3 class="service-card__title">Мытье окон</h3>
+                    <p class="service-card__description">Чистка оконных конструкций снаружи и изнутри</p>
+                    <div class="service-card__price">от 1500 ₽</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">🛋️</div>
+                    <h3 class="service-card__title">Химчистка мебели</h3>
+                    <p class="service-card__description">Глубокая очистка диванов, кресел и ковров</p>
+                    <div class="service-card__price">от 3000 ₽</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">🏢</div>
+                    <h3 class="service-card__title">Уборка офисов</h3>
+                    <p class="service-card__description">Регулярная уборка рабочих помещений и санузлов</p>
+                    <div class="service-card__price">от 3500 ₽</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Почему выбирают нас</h2>
+                <p class="section__subtitle">Мы предлагаем лучшее качество услуг и заботимся о каждом клиенте</p>
+            </div>
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-card__icon">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3 class="advantage-card__title">100% гарантия</h3>
+                    <p class="advantage-card__description">Качество работы подтверждено договором</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-card__icon">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="advantage-card__title">Эко-средства</h3>
+                    <p class="advantage-card__description">Используем безопасные для здоровья средства</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-card__icon">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                        </svg>
+                    </div>
+                    <h3 class="advantage-card__title">Профессионалы</h3>
+                    <p class="advantage-card__description">Обученные и проверенные сотрудники</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-card__icon">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="advantage-card__title">Лучшие отзывы</h3>
+                    <p class="advantage-card__description">Более 1000 довольных клиентов</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Отзывы клиентов</h2>
+                <p class="section__subtitle">Что говорят о нас наши клиенты</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+                <p class="testimonial-text">
+                    "Отличная клининговая компания! Быстро и качественно убрали квартиру перед приездом гостей. Всем довольна!"
+                </p>
+                <div class="testimonial-author">Анна Петрова</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__section">
+                    <h3>Zolushka</h3>
+                    <p style="color: #D1D5DB; margin-top: 1rem;">
+                        Профессиональный клининг в Брянске. Безупречная чистота за минимальное время.
+                    </p>
+                </div>
+                <div class="footer__section">
+                    <h3>Услуги</h3>
+                    <ul class="footer__links">
+                        <li><a href="#">Генеральная уборка</a></li>
+                        <li><a href="#">Поддерживающая уборка</a></li>
+                        <li><a href="#">Уборка после ремонта</a></li>
+                        <li><a href="#">Мытье окон</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h3>Контакты</h3>
+                    <div class="footer__contact">
+                        <div>
+                            <svg width="16" height="16" fill="currentColor" style="margin-right: 0.5rem;" viewBox="0 0 24 24">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                            +7 (4832) 123-456
+                        </div>
+                        <div>
+                            <svg width="16" height="16" fill="currentColor" style="margin-right: 0.5rem;" viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                            info@zolushka.ru
+                        </div>
+                        <div>
+                            <svg width="16" height="16" fill="currentColor" style="margin-right: 0.5rem;" viewBox="0 0 24 24">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                            г. Брянск, ул. Ленина, 100
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2024 Zolushka. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle between private and commercial form fields
+        document.addEventListener('DOMContentLoaded', function() {
+            const privateToggle = document.getElementById('toggle-private');
+            const commercialToggle = document.getElementById('toggle-commercial');
+            const privateFields = document.getElementById('private-fields');
+            const commercialFields = document.getElementById('commercial-fields');
+
+            privateToggle.addEventListener('change', function() {
+                if (this.checked) {
+                    privateFields.hidden = false;
+                    commercialFields.hidden = true;
+                }
+            });
+
+            commercialToggle.addEventListener('change', function() {
+                if (this.checked) {
+                    privateFields.hidden = true;
+                    commercialFields.hidden = false;
+                }
+            });
+
+            // Form submission
+            const form = document.getElementById('toggle-form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
+                form.reset();
+            });
+        });
+    </script>
+</body>
+</html>

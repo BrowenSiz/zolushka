@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}О компании "Золушка" | Профессиональный клининг в Брянске{% endblock title %}
+
+{% block content %}
+<section class="section page-hero">
+    <div class="container">
+        <h1 class="page-hero__title">Больше, чем просто уборка</h1>
+        <p class="page-hero__subtitle">Мы верим, что чистота в доме — это основа уюта, здоровья и хорошего настроения.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-grid__image">
+                <img src="{% static 'img/team-photo.jpg' %}" alt="Команда клининговой компании Золушка">
+            </div>
+            <div class="about-grid__content">
+                <h2 class="section__title" style="text-align: left; padding-bottom: 1rem; margin-bottom: 2rem;">Наша история и миссия</h2>
+                <p>Клининговая компания «Золушка» родилась из простого желания — сделать профессиональную, качественную уборку доступной для каждой семьи в Брянске. Наша миссия — не просто убирать грязь, а возвращать вашему дому ощущение свежести, новизны и комфорта.</p>
+                <p>Мы — команда перфекционистов, для которых блестящий кран или пол без единого развода — это не просто работа, а предмет личной гордости.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section--secondary">
+    <div class="container">
+        <h2 class="section__title">Наш подход к работе</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="material-symbols-outlined feature-card__icon">health_and_safety</span>
+                <h3 class="feature-card__title">Безопасность — прежде всего</h3>
+                <p class="feature-card__text">Мы используем только сертифицированные, гипоаллергенные и экологичные чистящие средства.</p>
+            </div>
+            <div class="feature-card">
+                <span class="material-symbols-outlined feature-card__icon">diamond</span>
+                <h3 class="feature-card__title">Внимание к деталям</h3>
+                <p class="feature-card__text">Наш стандарт — это идеальная чистота в каждом уголке, даже в тех, куда вы обычно не заглядываете.</p>
+            </div>
+            <div class="feature-card">
+                <span class="material-symbols-outlined feature-card__icon">verified_user</span>
+                <h3 class="feature-card__title">Полная ответственность</h3>
+                <p class="feature-card__text">Мы несем полную материальную ответственность за сохранность вашего имущества во время уборки.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

@@ -1,0 +1,47 @@
+// Универсальный стиль для всех карточек
+.card {
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+  }
+}
+
+.card-grid {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 576px) { grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: 992px) { grid-template-columns: repeat(3, 1fr); }
+}
+
+// Специфичные стили для карточек услуг
+.service-card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: var(--text-primary);
+  padding: 3rem;
+
+  &:hover { color: var(--text-primary); }
+
+  &__icon { font-size: 4rem; color: var(--accent-primary); margin: 0 auto 2rem; }
+  &__title { font: 700 2.2rem/1.2 var(--font-heading); margin-bottom: 1rem; }
+  &__price { font-weight: 600; color: var(--text-secondary); margin-bottom: 1.5rem; }
+  &__desc { color: var(--text-secondary); flex-grow: 1; margin-bottom: 3rem; }
+}
+
+// Специфичные стили для карточек портфолио
+.project-card {
+  overflow: hidden;
+
+  &__figure img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+  &__body { padding: 2rem; }
+  &__title { font: 600 2rem/1.2 var(--font-heading); margin-bottom: 2rem; }
+}

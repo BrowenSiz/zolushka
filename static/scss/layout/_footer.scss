@@ -1,0 +1,50 @@
+.footer {
+  padding: clamp(4rem, 6vw, 6rem) 0;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  font-size: 1.4rem;
+  color: var(--text-secondary);
+  &__grid {
+    display: grid;
+    gap: 4rem;
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+    text-align: left;
+    @media (max-width: 991px) { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 576px) { grid-template-columns: 1fr; text-align: center; }
+  }
+  &__brand {
+    @media (max-width: 576px) { .brand { justify-content: center; } }
+  }
+  &__description {
+    margin-top: 1.5rem;
+    max-width: 300px;
+    @media (max-width: 576px) { margin: 1.5rem auto 0; }
+  }
+  &__title {
+    font: 600 1.6rem/1.2 var(--font-ui);
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+  }
+  &__links {
+    list-style: none;
+    display: grid;
+    gap: 1.2rem;
+    a {
+      color: var(--text-secondary);
+      &:hover { color: var(--accent-primary); }
+    }
+  }
+  &__copy {
+    border-top: 1px solid var(--border-color);
+    padding-top: 3rem;
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+    @media (max-width: 576px) {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+  }
+}

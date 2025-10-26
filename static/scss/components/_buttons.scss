@@ -1,0 +1,40 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 2.4rem;
+  border-radius: $radius;
+  border: 1px solid $border-color;
+  background: $bg-primary;
+  color: $text-secondary;
+  font: 600 1.4rem/1.2 $font-ui;
+  cursor: pointer;
+  transition: $transition;
+  text-align: center;
+  white-space: nowrap;
+
+  &:hover {
+    border-color: $accent-primary;
+    color: $accent-primary;
+    transform: translateY(-2px);
+    box-shadow: $shadow-soft;
+  }
+
+  &--full {
+    width: 100%;
+  }
+
+  &--accent,
+  &.active {
+    background: $accent-primary;
+    border-color: $accent-primary;
+    color: #fff;
+
+    &:hover {
+      background: $accent-secondary;
+      border-color: $accent-secondary;
+      box-shadow: 0 4px 15px rgba(0, 167, 157, 0.3);
+      color: #fff;
+    }
+  }
+}

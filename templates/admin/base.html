@@ -1,0 +1,55 @@
+{% load static django_vite %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Клининговая компания Золушка{% endblock title %}</title>
+
+    {% vite_asset 'scss/main.scss' %}
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    {# --- НОВАЯ ССЫЛКА НА ШРИФТ MANROPE --- #}
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+
+    <link rel="icon" type="image/jpeg" href="{% static 'img/logo.jpg' %}">
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="container header__inner">
+            <a href="{% url 'pages:home' %}" class="brand">
+                <img src="{% static 'img/logo.jpg' %}" alt="Логотип Zolushka" class="brand__logo">
+                <div class="brand__text">
+                    <span class="brand__title">ЗОЛУШКА</span>
+                    <span class="brand__subtitle">КЛИНИНГОВАЯ КОМПАНИЯ</span>
+                </div>
+            </a>
+            <nav class="nav-menu">
+                <a href="{% url 'services:list' %}">Услуги</a>
+                <a href="{% url 'portfolio:list' %}">Портфолио</a>
+                <a href="{% url 'pages:reviews' %}">Отзывы</a>
+                <a href="{% url 'pages:about' %}">О нас</a>
+            </nav>
+            <div class="header__actions">
+                <a class="header__phone" href="tel:+79997050295">+7 (999) 705-02-95</a>
+            </div>
+            <button class="burger-btn" aria-label="Открыть меню">
+                <div></div>
+                <div></div>
+                <div></div>
+            </button>
+        </div>
+    </header>
+    <main>
+        {% block content %}{% endblock content %}
+    </main>
+    <footer class="footer">
+        <div class="container">
+            {# Этот блок мы наполним на следующем этапе #}
+        </div>
+    </footer>
+    {% vite_asset 'js/main.js' %}
+</body>
+</html>

@@ -1,0 +1,34 @@
+import { Navigation } from './components/Navigation.js';
+import { Portfolio } from './components/Portfolio.js';
+import { Tabs } from './components/Tabs.js';
+import { FormHandler } from './components/FormHandler.js';
+import { ScrollAnimator } from './components/ScrollAnimator.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+    new Navigation();
+    new ScrollAnimator();
+
+    const portfolioContainer = document.getElementById('portfolio-page');
+    if (portfolioContainer) { new Portfolio(portfolioContainer); }
+
+    const tabsContainer = document.querySelector('.checklist-tabs');
+    if (tabsContainer) { new Tabs(tabsContainer); }
+
+    new FormHandler('toggle-form');
+
+    // --- Логика для формы с переключателем (ИСПРАВЛЕНА) ---
+    const form = document.getElementById('toggle-form');
+    if (form) {
+        const toggles = form.querySelectorAll('input[name="object_type_toggle"]');
+        const privateFields = document.getElementById('private-fields');
+        const commercialFields = document.getElementById('commercial-fields');
+
+        toggles.forEach(toggle => {
+            toggle.addEventListener('change', (event) => {
+                const isPrivate = event.target.value === 'private';
+                privateFields.hidden = !isPrivate;
+                commercialFields.hidden = isPrivate;
+            });
+        });
+    }
+});

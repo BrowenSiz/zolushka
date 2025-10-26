@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ service.meta_title|default:service.title }}{% endblock title %}
+
+{% block content %}
+<section class="section service-hero" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('{{ service.hero_image.url }}');">
+    <div class="container">
+        <h1 class="service-hero__title">{{ service.title }}</h1>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container service-content">
+        <div class="service-description">
+            {{ service.full_description|linebreaks }}
+        </div>
+
+        {% if service.checklist_items.all %}
+        <div class="checklist-tabs">
+            <h2 class="section__title">Что входит в уборку</h2>
+            
+            {% regroup service.checklist_items.all by category as category_list %}
+            
+            <nav class="tabs-nav">
+                {% for category in category_list %}
+                <button class="tabs-nav__btn {% if forloop.first %}active{% endif %}" data-tab="{{ category.grouper|slugify }}">{{ category.grouper }}</button>
+                {% endfor %}
+            </nav>
+
+            <div class="tabs-content">
+                {% for category in category_list %}
+                <div class="tabs-content__pane {% if forloop.first %}active{% endif %}" id="tab-{{ category.grouper|slugify }}">
+                    <ul>
+                        {% for item in category.list %}
+                        <li><span class="material-symbols-outlined">done</span>{{ item.text }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock content %}

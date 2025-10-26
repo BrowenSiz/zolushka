@@ -1,0 +1,17 @@
+{
+  "name": "zolushka",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.77.6",
+    "vite": "^5.3.1"
+  }
+}

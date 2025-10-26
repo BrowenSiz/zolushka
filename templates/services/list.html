@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Услуги и цены на клининг в Брянске | Компания "Золушка"{% endblock title %}
+
+{% block content %}
+<section class="section page-hero">
+    <div class="container">
+        <h1 class="page-hero__title">Все виды уборки</h1>
+        <p class="page-hero__subtitle">От легкой поддерживающей чистки до комплексной генеральной уборки. Прозрачные цены и гарантированный результат.</p>
+    </div>
+</section>
+
+<section id="main-services" class="section">
+    <div class="container">
+        <h2 class="section__title">Основные направления</h2>
+        <div class="service-grid">
+            {% for service in main_services %}
+            <a href="{% url 'services:detail' service.slug %}" class="service-card">
+                <div class="service-card__icon"><span class="material-symbols-outlined">{{ service.icon }}</span></div>
+                <h3 class="service-card__title">{{ service.title }}</h3>
+                <p class="service-card__price">{{ service.price_display }}</p>
+                <p class="service-card__desc">{{ service.short_description }}</p>
+                <span class="button">Узнать подробнее →</span>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section id="additional-services" class="section section--secondary">
+    <div class="container">
+        <h2 class="section__title">Дополнительные услуги</h2>
+        <div class="price-grid">
+            {% for category in additional_categories %}
+            <div class="price-category">
+                <h3 class="price-category__title">{{ category.title }}</h3>
+                <ul class="price-items">
+                    {% for item in category.items.all %}
+                    <li><span>{{ item.title }}</span> <strong>{{ item.price }}</strong></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock content %}

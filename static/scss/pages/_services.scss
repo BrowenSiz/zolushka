@@ -1,0 +1,131 @@
+.price-grid {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: 1fr; // Mobile first
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.price-category {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+
+  &__title {
+    font: 600 2rem/1.2 var(--font-heading);
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+  }
+}
+
+.price-items {
+  list-style: none;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--border-color);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    strong {
+      font-weight: 600;
+      white-space: nowrap;
+    }
+  }
+}
+
+.service-hero {
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: clamp(10rem, 15vw, 12rem) 0;
+
+  &__title {
+    font: 700 clamp(4rem, 6vw, 5.2rem)/1.1 var(--font-heading);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.service-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.service-description {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 8rem;
+}
+
+.tabs-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid var(--border-color);
+  flex-wrap: wrap;
+
+  &__btn {
+    padding: 1.2rem 2.4rem;
+    font: 600 1.6rem/1.2 var(--font-ui);
+    color: var(--text-secondary);
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transform: translateY(1px);
+
+    &.active {
+      color: var(--accent-primary);
+      border-bottom-color: var(--accent-primary);
+    }
+  }
+}
+
+.tabs-content__pane {
+  display: none;
+
+  &.active {
+    display: block;
+    background: var(--bg-secondary);
+    padding: 3rem;
+    border-radius: var(--radius-lg);
+  }
+
+  ul {
+    list-style: none;
+    columns: 2;
+    gap: 3rem;
+
+    @media (max-width: 576px) {
+      columns: 1;
+    }
+  }
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+    break-inside: avoid;
+  }
+
+  .material-symbols-outlined {
+    color: var(--accent-primary);
+  }
+}
