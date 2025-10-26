@@ -1,5 +1,5 @@
 .hero {
-  padding-top: 18rem; // Увеличенный отступ для плавающего хедера
+  padding-top: 18rem;
   padding-bottom: clamp(6rem, 8vw, 10rem);
   background: #F7F8FC;
 }
@@ -54,6 +54,10 @@
     max-width: 500px;
     margin: 0 auto;
   }
+}
+
+.services-section {
+    background: linear-gradient(90deg, #FFFFFF 0%, #F7F8FC 100%);
 }
 
 .advantages-grid {

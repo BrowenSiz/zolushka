@@ -71,16 +71,23 @@
     </div>
 </section>
 
-<section id="services" class="section">
+<section id="services" class="section services-section">
     <div class="container">
         <h2 class="section__title">Наши услуги</h2>
         <div class="service-grid">
             {% for service in services %}
             <a href="{% url 'services:detail' service.slug %}" class="service-card">
-                <div class="service-card__icon"><span class="material-symbols-outlined">{{ service.icon }}</span></div>
-                <h3 class="service-card__title">{{ service.title }}</h3>
-                <p class="service-card__desc">{{ service.short_description }}</p>
-                <div class="service-card__price">{{ service.price_display }}</div>
+                <div class="service-card__image">
+                    <img src="{% static 'img/worksbg/'|add:service.slug|add:'.png' %}" alt="{{ service.title }}">
+                </div>
+                <div class="service-card__body">
+                    <h3 class="service-card__title">{{ service.title }}</h3>
+                    <p class="service-card__desc">{{ service.short_description }}</p>
+                    <div class="service-card__footer">
+                        <span class="service-card__link">Узнать подробнее</span>
+                        <span class="service-card__arrow material-symbols-outlined">arrow_forward</span>
+                    </div>
+                </div>
             </a>
             {% empty %}
                 <p>Услуги скоро появятся на сайте.</p>
