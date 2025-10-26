@@ -9,8 +9,10 @@ export class Navigation {
     init() {
         if (!this.header || !this.burger || !this.menu) return;
 
+        // Эффект "прилипания" хэдера
         window.addEventListener('scroll', () => this.handleScroll());
 
+        // Открытие/закрытие мобильного меню
         this.burger.addEventListener('click', () => this.toggleMenu());
     }
 
@@ -23,8 +25,8 @@ export class Navigation {
     }
 
     toggleMenu() {
+        const isMenuOpen = this.menu.classList.toggle('open');
         this.burger.classList.toggle('open');
-        this.menu.classList.toggle('open');
-        document.body.classList.toggle('no-scroll');
+        document.body.classList.toggle('no-scroll', isMenuOpen);
     }
 }

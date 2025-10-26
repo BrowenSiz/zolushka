@@ -2,34 +2,28 @@ a {
   color: $accent-primary;
   text-decoration: none;
   transition: $transition;
-
   &:hover {
     color: $accent-secondary;
   }
 }
-
 h1, h2, h3, h4, h5, h6 {
-  // --- ИСПРАВЛЕНИЕ ЗДЕСЬ ---
-  font-family: $font-main;
+  font-family: $font-heading;
   font-weight: 800;
   line-height: 1.2;
   color: $text-primary;
 }
-
 p {
   margin-bottom: 1.5rem;
   &:last-child {
     margin-bottom: 0;
   }
 }
-
 .section__title {
-  font-size: clamp(3.2rem, 4vw, 4.8rem);
+  font-size: clamp(3.2rem, 4vw, 4.2rem);
   text-align: center;
   margin-bottom: 6rem;
   position: relative;
   padding-bottom: 2rem;
-
   &::after {
     content: '';
     position: absolute;
@@ -37,13 +31,11 @@ p {
     left: 50%;
     transform: translateX(-50%);
     width: 60px;
-    height: 3px;
+    height: 4px;
     background: $accent-primary;
     border-radius: 3px;
-    opacity: 0.8;
   }
 }
-
 .text-accent {
   color: $accent-primary;
 }

@@ -1,48 +1,49 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Услуги и цены на клининг в Брянске | Компания "Золушка"{% endblock title %}
+{% block title %}Примеры наших работ (Портфолио) | Компания "Золушка"{% endblock title %}
 
 {% block content %}
 <section class="section page-hero">
     <div class="container">
-        <h1 class="page-hero__title">Все виды уборки</h1>
-        <p class="page-hero__subtitle">От легкой поддерживающей чистки до комплексной генеральной уборки. Прозрачные цены и гарантированный результат.</p>
+        <h1 class="page-hero__title">Наши работы</h1>
+        <p class="page-hero__subtitle">Мы не просто убираем, мы создаем чистоту, которую можно увидеть и почувствовать. Посмотрите, как мы преображаем пространства.</p>
     </div>
 </section>
 
-<section id="main-services" class="section">
+<section id="portfolio-page" class="section">
     <div class="container">
-        <h2 class="section__title">Основные направления</h2>
-        <div class="service-grid">
-            {% for service in main_services %}
-            <a href="{% url 'services:detail' service.slug %}" class="service-card">
-                <div class="service-card__icon"><span class="material-symbols-outlined">{{ service.icon }}</span></div>
-                <h3 class="service-card__title">{{ service.title }}</h3>
-                <p class="service-card__price">{{ service.price_display }}</p>
-                <p class="service-card__desc">{{ service.short_description }}</p>
-                <span class="button">Узнать подробнее →</span>
-            </a>
+        <div class="portfolio-filters">
+            <button class="button button--outline filter-btn active" data-filter="all">Все работы</button>
+            {% for category in categories %}
+            <button class="button button--outline filter-btn" data-filter="{{ category.slug }}">{{ category.name }}</button>
             {% endfor %}
         </div>
-    </div>
-</section>
 
-<section id="additional-services" class="section section--secondary">
-    <div class="container">
-        <h2 class="section__title">Дополнительные услуги</h2>
-        <div class="price-grid">
-            {% for category in additional_categories %}
-            <div class="price-category">
-                <h3 class="price-category__title">{{ category.title }}</h3>
-                <ul class="price-items">
-                    {% for item in category.items.all %}
-                    <li><span>{{ item.title }}</span> <strong>{{ item.price }}</strong></li>
-                    {% endfor %}
-                </ul>
+        <div class="portfolio-grid">
+            {% for project in projects %}
+            <div class="project-card" data-category="{{ project.category.slug }}">
+                <figure class="project-card__figure">
+                    <img src="{{ project.preview_image.url }}" alt="{{ project.title }}" loading="lazy">
+                </figure>
+                <div class="project-card__body">
+                    <h3 class="project-card__title">{{ project.title }}</h3>
+                    <button class="button button--full open-project-modal" data-project-id="{{ project.pk }}">Смотреть детали</button>
+                </div>
             </div>
+            {% empty %}
+            <p>Скоро здесь появятся примеры наших работ.</p>
             {% endfor %}
         </div>
     </div>
 </section>
+
+<div id="project-modal" class="project-modal" hidden>
+    <div class="project-modal__overlay" data-close-modal></div>
+    <div class="project-modal__content">
+        <button class="project-modal__close" data-close-modal>&times;</button>
+        <div id="modal-body-content">
+            </div>
+    </div>
+</div>
 {% endblock content %}

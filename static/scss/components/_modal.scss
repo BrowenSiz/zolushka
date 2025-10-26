@@ -6,14 +6,12 @@
   align-items: center;
   justify-content: center;
 
-  &[hidden] {
-    display: none;
-  }
+  &[hidden] { display: none; }
 
   &__overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(9, 9, 11, 0.7);
     backdrop-filter: blur(8px);
   }
 
@@ -30,13 +28,16 @@
 
   &__close {
     position: absolute;
-    top: 1rem;
-    right: 1.5rem;
-    font-size: 3rem;
+    top: 1.5rem;
+    right: 2rem;
+    font-size: 3.5rem;
+    line-height: 1;
     color: $text-secondary;
     background: none;
     border: none;
     cursor: pointer;
+    transition: $transition;
+    &:hover { color: $text-primary; transform: rotate(90deg); }
   }
 }
 
@@ -45,17 +46,7 @@
   grid-template-columns: 60fr 40fr;
   gap: 4rem;
   align-items: flex-start;
-
-  @media (max-width: 767px) {
-    grid-template-columns: 1fr;
-  }
-}
-
-.modal__visuals {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  @media (max-width: 991px) { grid-template-columns: 1fr; }
 }
 
 .modal__viewer {
@@ -66,7 +57,7 @@
   background: $bg-secondary;
   border: 1px solid $border-color;
 
-  img-comparison-slider img,
+  img-comparison-slider,
   .single-image-view {
     width: 100%;
     height: 100%;
@@ -78,6 +69,7 @@
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  margin-top: 1.5rem;
 }
 
 .thumb {
@@ -116,25 +108,20 @@
   }
 }
 
-.modal__info {
-  max-height: 80vh;
-  overflow-y: auto;
-}
-
 .modal__title {
-  font: 700 3.6rem/1.2 $font-heading;
-  margin-bottom: 2.5rem;
+  font: 800 3.2rem/1.2 $font-heading;
+  margin-bottom: 2rem;
 }
 
 .modal-section {
-  margin-bottom: 3rem;
   color: $text-secondary;
   line-height: 1.7;
+  font-size: 1.6rem;
 }
 
 .modal__stats {
   display: grid;
-  gap: 1.5rem;
+  gap: 2rem;
   margin-top: 3rem;
   border-top: 1px solid $border-color;
   padding-top: 3rem;
@@ -144,20 +131,12 @@
   display: flex;
   align-items: center;
   gap: 1.5rem;
-
-  .material-symbols-outlined {
-    color: $accent-primary;
-    font-size: 2.8rem;
-  }
-
-  strong {
-    color: $text-primary;
-  }
+  font-size: 1.6rem;
+  .material-symbols-outlined { color: $accent-primary; font-size: 2.8rem; }
+  strong { color: $text-primary; }
 }
 
-.modal__cta {
-  margin-top: 3rem;
-}
+.modal__cta { margin-top: 4rem; }
 
 .loader {
   width: 48px;

@@ -1,4 +1,4 @@
-// 1. Base
+// 1. Base (Переменные должны быть самыми первыми)
 @import 'base/variables';
 @import 'base/reset';
 @import 'base/typography';
@@ -13,7 +13,6 @@
 @import 'components/forms';
 @import 'components/cards';
 @import 'components/modal';
-@import 'components/admin';
 
 // 4. Pages
 @import 'pages/home';

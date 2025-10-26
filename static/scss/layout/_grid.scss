@@ -1,39 +1,32 @@
 .container {
   width: min(1200px, 100% - 4rem);
   margin-inline: auto;
-
-  @media (min-width: 768px) {
-    width: min(1200px, 100% - 6rem);
-  }
 }
-
 .section {
   padding: clamp(6rem, 8vw, 10rem) 0;
-  border-bottom: 1px solid $border-color;
-
-  &:nth-of-type(odd) {
-    background: $bg-primary;
-  }
   &:nth-of-type(even) {
-    background: $bg-secondary;
+     background: $bg-secondary;
+     border-top: 1px solid $border-color;
+     border-bottom: 1px solid $border-color;
   }
 }
-
 .page-hero {
-  padding: clamp(6rem, 8vw, 8rem) 0;
+  padding-top: clamp(15rem, 18vw, 18rem);
+  padding-bottom: clamp(6rem, 8vw, 8rem);
   text-align: center;
   background: $bg-secondary;
   border-bottom: 1px solid $border-color;
 
   &__title {
-    font-size: clamp(4rem, 5vw, 4.8rem);
-    font-weight: 700;
+    font-size: clamp(4rem, 5vw, 5.2rem);
+    font-weight: 800;
+    line-height: 1.1;
   }
-
   &__subtitle {
-    font-size: 1.8rem;
+    font-size: clamp(1.6rem, 2vw, 1.8rem);
     color: $text-secondary;
-    max-width: 600px;
-    margin: 1.5rem auto 0;
+    max-width: 650px;
+    margin: 2rem auto 0;
+    line-height: 1.7;
   }
 }

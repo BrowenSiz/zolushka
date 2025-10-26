@@ -5,25 +5,35 @@
   margin: 0;
   padding: 0;
 }
-
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
 }
-
 body {
   background: $bg-primary;
   color: $text-primary;
   font: 400 1.6rem/1.6 $font-main;
   min-height: 100vh;
-
+  -webkit-font-smoothing: antialiased;
   &.no-scroll {
     overflow: hidden;
   }
 }
-
-img {
+img, picture, video, canvas, svg {
   max-width: 100%;
   height: auto;
   display: block;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+input, button, textarea, select {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+ul, ol {
+  list-style: none;
 }

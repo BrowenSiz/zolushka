@@ -1,41 +1,41 @@
 .form-card {
   background: $bg-primary;
   border-radius: $radius-lg;
-  padding: clamp(2rem, 4vw, 3rem); 
+  padding: clamp(2.5rem, 4vw, 4rem); 
   box-shadow: $shadow-medium;
   border: 1px solid $border-color;
+  width: 100%;
 
   &__title {
     font: 700 2.4rem/1.2 $font-heading;
     text-align: center;
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
   }
 
   &__note {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: $text-secondary;
     margin-top: 1.5rem;
     text-align: center;
+    line-height: 1.5;
   }
 }
 
 .form-toggle {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   background: $bg-secondary;
   border-radius: $radius;
   padding: 0.5rem;
   margin-bottom: 2.5rem;
   border: 1px solid $border-color;
 
-  input {
-    display: none;
-  }
+  input { display: none; }
 
   label {
-    flex: 1;
     text-align: center;
     padding: 1rem;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 1.4rem;
     font-weight: 600;
     color: $text-secondary;
@@ -51,73 +51,87 @@
 }
 
 .field {
-  margin-bottom: 1.5rem;
-
-  &__label {
-    display: block;
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-bottom: 0.8rem;
-  }
+  margin-bottom: 2rem;
+  position: relative;
 
   &__input {
     width: 100%;
-    padding: 1.4rem;
+    padding: 1.6rem;
     border-radius: $radius;
     border: 1px solid $border-color;
     font: 500 1.6rem/1.2 $font-ui;
-    background: $bg-primary;
+    background: $bg-secondary;
+    transition: $transition;
+    -webkit-appearance: none;
+    appearance: none;
+
+    &::placeholder { color: $text-secondary; }
 
     &:focus {
       outline: none;
       border-color: $accent-primary;
-      box-shadow: 0 0 0 3px rgba(0, 167, 157, 0.2);
+      background: $bg-primary;
+      box-shadow: 0 0 0 4px rgba($accent-primary, 0.1);
     }
+  }
+
+  select.field__input {
+    cursor: pointer;
+  }
+
+  // Кастомная стрелка для select
+  select + &::after {
+    content: 'expand_more';
+    font-family: 'Material Symbols Outlined';
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
+    font-size: 2.4rem;
+    color: $text-secondary;
+    pointer-events: none;
+    transition: $transition;
+  }
+
+  select:focus + &::after {
+      color: $accent-primary;
   }
 }
 
 .rooms-selector {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
 
-  input {
-    display: none;
-  }
+  input { display: none; }
 
   label {
-    flex-grow: 1;
     text-align: center;
-    padding: 1.2rem;
+    padding: 1.4rem;
     border: 1px solid $border-color;
+    border-radius: $radius;
     cursor: pointer;
     transition: $transition;
-
-    &:first-of-type {
-      border-radius: $radius 0 0 $radius;
-    }
-    &:last-of-type {
-      border-radius: 0 $radius $radius 0;
-    }
+    background: $bg-secondary;
   }
 
   input:checked + label {
     background: $accent-primary;
     color: #fff;
     border-color: $accent-primary;
+    box-shadow: 0 4px 10px rgba($accent-primary, 0.2);
   }
 }
 
 .form-fields-wrapper {
-  min-height: 220px;
   position: relative;
 }
 
-.form-fields {
-  > div {
-    animation: fadeIn 0.4s ease;
-  }
+.form-fields > div {
+  animation: fadeIn 0.4s ease-in-out;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(15px); }
   to { opacity: 1; transform: translateY(0); }
 }
